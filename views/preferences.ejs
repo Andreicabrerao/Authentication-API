@@ -1,36 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+type="text/javascript"></script>
+<style type="text/css">
+  @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+  
+  #feedControl {
+  margin-top : 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width : 440px;
+  font-size: 12px;
+  color: #9CADD0;
+  }
+  </style>
+  <script type="text/javascript">
+  function load() {
+  var feed ="http://feeds.reuters.com/Reuters/worldNews ";
+  new GFdynamicFeedControl(feed, "feedControl");
+  
+  }
+  google.load("feeds", "1");
+  google.setOnLoadCallback(load);
+  </script>
 <style>
-ul {
-  list-style: none; /* Remove HTML bullets */
-  padding: 0;
+  body {
+  background-color: rgb(230, 221, 210);
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
   margin: 0;
 }
 
-li { 
-  padding-left: 16px; 
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
 }
 
-li::before {
-  content: "•"; /* Insert content that looks like bullets */
-  padding-right: 8px;
-  color: blue; /* Or a color you prefer */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 </style>
 </head>
 <body>
 
-<h1>News you selected:</h1>
+<div class="navbar">
+  <a href="dashboard">Home</a>
+  <a href="https://news.google.com/search?for=javascript&hl=en-US&gl=US&ceid=US%3Aen">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">More 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="http://localhost:3000">Welcome page</a>
+      <a href="/users/login">Login</a>
+      <!-- <a href="/users/register">Register</a> -->
+      <a href="#">Edit profile</a>
+    </div>
+  </div> 
+</div>
 
-<ul>
+<h3>News you selected:</h3>
+<p><ul>
   <li>Javascript</li>
-  <li>:</li>
-  <li>:</li>
-</ul>
-<a href="/users/logout">Logout</a>
+  <li>Sports</li>
+  
+</ul></p>
+<div>
+  <a href="/users/logout">Logout</a>
+  </div>
+
+
+  <div id="body">
+    <div id="feedControl">Loading...</div>
+    </div>
 </body>
 </html>
+
+
 
 
 

@@ -1,3 +1,44 @@
+//preferences
+
+// <!DOCTYPE html>
+// <html>
+// <head>
+// <style>
+//   body {font-family: Arial, Helvetica, sans-serif;
+// background-color: rgb(230, 221, 210);}
+// ul {
+//   list-style: none; /* Remove HTML bullets */
+//   padding: 0;
+//   margin: 0;
+// }
+
+// li {
+//   padding-left: 16px;
+// }
+
+// li::before {
+//   content: "•"; /* Insert content that looks like bullets */
+//   padding-right: 8px;
+//   color: blue; /* Or a color you prefer */
+// }
+// </style>
+// </head>
+// <body>
+
+// <h1>News you selected:</h1>
+// <div>
+// <ul>
+//   <li>Javascript</li>
+//   <li>Sports</li>
+
+// </ul>
+// </div>
+// <div>
+// <a href="/users/logout">Logout</a>
+// </div>
+// </body>
+// </html>
+
 // //dashboard
 // <link rel="stylesheet" href="style.css">
 // <html>

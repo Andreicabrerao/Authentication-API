@@ -7,8 +7,6 @@ const { route } = require(".");
 // import { checkNews } from "../models/sendEmail";
 const { checkNews } = require("../models/sendEmail");
 
-console.log(checkNews);
-
 //login handle
 router.get("/login", (req, res) => {
   res.render("login");
@@ -139,4 +137,5 @@ router.get("/logout", (req, res) => {
   req.flash("success_msg", "Now logged out");
   res.redirect("http://localhost:3000");
 });
+
 module.exports = router;

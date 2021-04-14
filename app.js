@@ -22,6 +22,7 @@ mongoose
 app.set("view engine", "ejs");
 app.use(expressEjsLayout);
 app.use(express.static("public"));
+app.use(express.static("assets"));
 
 app.use(express.json());
 

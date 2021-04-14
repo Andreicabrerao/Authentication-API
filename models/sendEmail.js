@@ -2,10 +2,11 @@ const NewsAPI = require("newsapi");
 const fetch = require("node-fetch");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv").config();
+import emailInvitation from ("somewhere')
 
 const EMAIL_UNAME = "psnotification2@gmail.com";
 const EMAIL_PW = "Felizes2";
-const EMAIL_UNAME_TO = "andrei.cabrera@gmail.com";
+const EMAIL_UNAME_TO = {emailInvitation};
 
 const mail = nodemailer.createTransport({
   service: "gmail", // Based on an origin Gmail account
@@ -22,8 +23,6 @@ const mailOptions = {
   text: "test",
 };
 
-let currentEmailCounter = 0;
-let saved;
 // Request product status from Best Buy
 const checkNews = async () => {
   try {
@@ -34,7 +33,7 @@ const checkNews = async () => {
       .then((data) => {
         console.log(data);
         //format
-        mailOptions.text = data;
+        mailOptions.text = JSON.stringify(data);
         sendMail();
       });
   } catch (error) {
@@ -45,26 +44,13 @@ const checkNews = async () => {
 // Send mail with given options
 const sendMail = () => {
   // If it's time to send out mail
-  if (checkMailLimit()) {
-    mail.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Email sent: " + info.response);
-      }
-    });
-  }
-};
-
-// Checks if mail should be sent
-const checkMailLimit = () => {
-  if (currentEmailCounter === 1) {
-    currentEmailCounter--;
-    return true;
-  }
-
-  currentEmailCounter++;
-  return false;
+  mail.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
 };
 
 module.exports = { checkNews };
