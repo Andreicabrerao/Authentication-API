@@ -2,7 +2,6 @@ const NewsAPI = require("newsapi");
 const fetch = require("node-fetch");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv").config();
-import emailInvitation from ("somewhere')
 
 const EMAIL_UNAME = "psnotification2@gmail.com";
 const EMAIL_PW = "Felizes2";
